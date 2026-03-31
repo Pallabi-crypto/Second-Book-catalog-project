@@ -1,0 +1,30 @@
+.home{
+    display: flex;
+    background-color: #310934;
+    color: #ffc107;
+    height: 92vh;
+    padding-inline: 30px;
+}
+.home-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+.home-text{
+    font-size: 3rem;
+    margin-bottom: 10px;
+    word-spacing: 1%;
+}
+.home-description{
+    font-size: 1.2rem;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+.home-image{
+    flex: 1;
+    background: url('images/home-image.png') center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+}
