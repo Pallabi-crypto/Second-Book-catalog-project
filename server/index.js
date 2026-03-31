@@ -4,7 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import "./db.js";
 import { AdminRouter } from "./router/auth.js";
-import { studentRouter } from "./router/Student.js";
+import { studentRouter } from "./router/student.js";
 import { bookRouter } from "./router/book.js";
 import { Admin } from "./model/Admin.js";
 import { Student } from "./model/Student.js";
