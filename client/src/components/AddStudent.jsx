@@ -14,19 +14,20 @@ const AddStudent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3001/register/register", {
+    axios.post(`${import.meta.env.VITE_API_URL}/register/register`, {
       roll,
       username,
       grade,
       password
-    })
-    .then(res => {
-      console.log("Response:", res.data);
-      if(res.data.registered){
-        nevigate('/dashboard');
-      }
-    })
-    .catch(err => console.log(err));
+    }, { withCredentials: true })
+
+      .then(res => {
+        console.log("Response:", res.data);
+        if (res.data.registered) {
+          nevigate('/dashboard');
+        }
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -70,7 +71,7 @@ const AddStudent = () => {
           />
         </div>
 
-        <button className = 'btn-register' type='submit'>Register</button>
+        <button className='btn-register' type='submit'>Register</button>
       </form>
     </div>
   );

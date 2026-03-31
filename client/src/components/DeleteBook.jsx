@@ -9,7 +9,8 @@ const DeleteBook = () => {
   const navigate = useNavigate()
   const { id } = useParams()
     useEffect(() => {
-        axios.delete('http://localhost:3001/book/' +id, { withCredentials: true })
+        axios.delete(`${import.meta.env.VITE_API_URL}/book/`+id, { withCredentials: true } )
+        //axios.delete('http://localhost:3001/book/' +id, { withCredentials: true })
         .then(res => {
             if(res.data.deleted){
                 navigate('/books')

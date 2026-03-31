@@ -13,22 +13,22 @@ const AddBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.defaults.withCredentials = true;
-    axios.post("http://localhost:3001/book/add", {
+    axios.post(`${import.meta.env.VITE_API_URL}/book/add`, {
       name,
       author,
       imageUrl
     })
-    .then(res => {
-      console.log("Response:", res.data);
-      if(res.data.added){
-        nevigate('/books')
-      }else{
-        console.log(res);
-        
-      }
+      .then(res => {
+        console.log("Response:", res.data);
+        if (res.data.added) {
+          nevigate('/books')
+        } else {
+          console.log(res);
 
-    })
-    .catch(err => console.log(err));
+        }
+
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -63,7 +63,7 @@ const AddBook = () => {
           />
         </div>
 
-        <button className = 'btn-register' type='submit'> Add </button>
+        <button className='btn-register' type='submit'> Add </button>
       </form>
     </div>
   );

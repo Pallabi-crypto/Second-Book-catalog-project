@@ -7,7 +7,7 @@ const Dashboard = () => {
   const [admin, setAdmin] = useState(0);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/dashboard')
+    axios.get(`${import.meta.env.VITE_API_URL}/dashboard`)
     .then(res =>{
       if(res.data.ok){
         setAdmin(res.data.admin)
