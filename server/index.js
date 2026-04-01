@@ -17,9 +17,9 @@ const app = express();
 
 app.use(
   cors({
-  origin: "https://your-frontend.vercel.app",
-  credentials: true
-})
+    origin: "https://second-book-catalog-project.vercel.app",
+    credentials: true
+  })
 );
 app.use(express.json());
 app.use(cookieParser());
