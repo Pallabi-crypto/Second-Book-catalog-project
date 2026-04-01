@@ -6,8 +6,7 @@ import '../css/Book.css'
 const Books = ({roles}) => {
     const [books, setBooks] = useState([])
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/book/books`, {
-  withCredentials: true})
+        axios.get(`${import.meta.env.VITE_API_URL}/book/books`)
         //axios.get('http://localhost:3001/book/books')
         .then(res => {
             setBooks(res.data)

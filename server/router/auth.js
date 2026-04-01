@@ -36,8 +36,8 @@ router.post('/login', async (req, res) => {
             const token = jwt.sign({ username: student.username, role: 'student' }, process.env.Student_Key)
             res.cookie('token', token, {
                 httpOnly: true,
-                secure: false,       // IMPORTANT for localhost
-                sameSite: "lax"
+                secure: true,        // ✅ REQUIRED for HTTPS
+                sameSite: "None"     // ✅ REQUIRED for cross-origin
             });
             return res.json({ login: true, role: 'student' });
         } else {
