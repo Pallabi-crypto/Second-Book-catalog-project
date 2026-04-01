@@ -6,7 +6,7 @@ import '../css/Book.css'
 const Books = ({roles}) => {
     const [books, setBooks] = useState([])
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/book/books`)
+        axios.get(`${import.meta.env.VITE_API_URL}/book/books`,{withCredentials: true})
         //axios.get('http://localhost:3001/book/books')
         .then(res => {
             setBooks(res.data)
@@ -18,7 +18,7 @@ const Books = ({roles}) => {
     <div className='book-list'>
         {
             books.map(book => {
-               return <BookCard key={book.id} book = {book} roles={roles}></BookCard>
+               return <BookCard key={book._id} book = {book} roles={roles}></BookCard>
             })}
     </div>
   )

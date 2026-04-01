@@ -95,8 +95,11 @@ router.get('/verify', verifyUser, (req, res) => {
 })
 
 router.get('/logout', (req, res) => {
-    res.clearCookie('token')
-    return res.json({ logout: true })
+   res.clearCookie('token', {
+    httpOnly: true,
+    secure: true,
+    sameSite: "None"
+});
 })
 
 export { router as AdminRouter, verifyAdmin }
