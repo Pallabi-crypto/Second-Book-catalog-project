@@ -1,6 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Home from './components/home'
-import Navbar from './components/navbar'
+import Home from './components/Home.jsx'
+import Navbar from './components/Navbar.jsx'
 import Login from './components/Login'
 import AddStudent from './components/AddStudent.jsx'
 import { useState } from 'react'
