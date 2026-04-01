@@ -26,6 +26,7 @@ app.use(cookieParser());
 
 app.use("/auth", AdminRouter);
 app.use("/register", studentRouter)
+console.log("✅ Book router is being used");
 app.use("/book", bookRouter)
 
 app.get('/dashboard', async(req,res) =>{
