@@ -4,19 +4,21 @@ import { useNavigate } from 'react-router-dom'
 
 const Logout = ({ setRoles }) => {
     const navigate = useNavigate()
-    console.log("setRoles:", setRoles)
+
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/auth/logout`, { withCredentials: true })
-        //axios.get('http://localhost:3001/auth/logout', { withCredentials: true })
+        axios.get(`${import.meta.env.VITE_API_URL}/auth/logout`, {
+            withCredentials: true
+        })
         .then(res => {
             console.log("Logout API response:", res.data)
-            if(res.data.logout){
-                setRoles('')
-                navigate('/')
+
+            if (res.data.logout) {
+                setRoles(null)   // ✅ FIXED
+                navigate('/login') // ✅ better UX
             }
         })
         .catch(err => console.log(err))
-    }, [setRoles, navigate])
+    }, [])
 
     return null
 }
