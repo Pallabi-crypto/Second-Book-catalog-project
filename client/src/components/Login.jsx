@@ -9,7 +9,8 @@ const Login = ({setRoles}) => {
   const navigate = useNavigate()
   axios.defaults.withCredentials = true;
   const handleSubmit = () => {
-    axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, {username, password, role})
+    axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, {username, password, role}, 
+      { withCredentials: true })
    // axios.post('http://localhost:3001/auth/login', {username, password, role})
     .then(res => {
   console.log("Full Response:", res.data);  // 👈 ADD THIS
