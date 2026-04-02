@@ -9,9 +9,9 @@ import { bookRouter } from "./router/book.js";
 import { Admin } from "./model/Admin.js";
 import { Student } from "./model/Student.js";
 import { Book } from "./model/Book.js";
-
+import connectDB from "./db.js";
 dotenv.config();   // Always configure first
-
+connectDB();
 const app = express();
 
 
