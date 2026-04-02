@@ -6,6 +6,7 @@ import { Student } from '../model/Student.js';
 const router = express.Router();
 
 router.post('/login', async (req, res) => {
+    res.send("Login endpoint working. Use POST.");
     try {
         const { username, password, role } = req.body;
         if (role === 'admin') {
