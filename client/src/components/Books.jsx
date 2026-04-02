@@ -18,7 +18,7 @@ const Books = ({roles}) => {
     <div className='book-list'>
         {
             books.map(book => {
-               return <BookCard key={book._id} book = {book} roles={roles}></BookCard>
+               return <BookCard key={book.id} book = {book} roles={roles}></BookCard>
             })}
     </div>
   )
