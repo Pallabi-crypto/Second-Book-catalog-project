@@ -24,12 +24,13 @@ router.post('/add', verifyAdmin, async (req, res) => {
     }
 })
 router.get('/books', async (req, res) => {
-    try{
+    try {
         const books = await Book.find()
+        console.log("Books:", books)
         return res.json(books)
-    }catch(err){
-        return res.json(err)
-        
+    } catch(err){
+        console.error("Error:", err)
+        return res.status(500).json({ error: err.message })
     }
 })
 router.get('/book/:id', async (req, res) => {
