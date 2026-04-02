@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import '../css/AddStudent.css'
-//import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -8,24 +7,29 @@ const EditBook = () => {
   const [name, setName] = useState('');
   const [author, setAuthor] = useState('');
   const [imageUrl, setImageUrl] = useState('');
-  const nevigate = useNavigate()
-  const { id } = useParams()
-  
+
+  const navigate = useNavigate();
+  const { id } = useParams();
+
   useEffect(() => {
     axios.defaults.withCredentials = true;
+
     axios.get(`${import.meta.env.VITE_API_URL}/book/book/${id}`)
-    //axios.get("http://localhost:3001/book/book/"+id)
-    .then(res => {
+      .then(res => {
         console.log(res);
-        setName(res.data.name)
-        setAuthor(res.data.author)
-        setImageUrl(res.data.imageUrl)
-        
-    }).catch(err => console.log(err))
-  }, [])
+        setName(res.data.name);
+        setAuthor(res.data.author);
+        setImageUrl(res.data.imageUrl);
+      })
+      .catch(err => console.log(err));
+
+  }, [id]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     axios.defaults.withCredentials = true;
+
     axios.put(`${import.meta.env.VITE_API_URL}/book/book/${id}`, {
       name,
       author,
@@ -33,13 +37,12 @@ const EditBook = () => {
     })
     .then(res => {
       console.log("Response:", res.data);
-      if(res.data.updated){
-        nevigate('/books')
-      }else{
-        console.log(res);
-        
-      }
 
+      if (res.data.updated) {
+        navigate('/books');
+      } else {
+        console.log(res.data);
+      }
     })
     .catch(err => console.log(err));
   };
@@ -50,7 +53,7 @@ const EditBook = () => {
         <h2>Edit Book</h2>
 
         <div className='form-group'>
-          <label> Book Name:</label>
+          <label>Book Name:</label>
           <input
             type='text'
             value={name}
@@ -76,9 +79,12 @@ const EditBook = () => {
           />
         </div>
 
-        <button className = 'btn-register' type='submit'> Update </button>
+        <button className='btn-register' type='submit'>
+          Update
+        </button>
       </form>
     </div>
   );
 };
+
 export default EditBook;
