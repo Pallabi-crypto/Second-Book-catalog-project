@@ -10,7 +10,7 @@ import { Admin } from "./model/Admin.js";
 import { Student } from "./model/Student.js";
 import { Book } from "./model/Book.js";
 import connectDB from "./db.js";
-import './AdminAccount.js'; // ✅ MAKE SURE THIS FILE RUNS
+import './seed.js'; // ✅ MAKE SURE THIS FILE RUNS
 dotenv.config();   // Always configure first
 connectDB();
 const app = express();
