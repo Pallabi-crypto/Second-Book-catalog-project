@@ -26,7 +26,7 @@ const EditBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.defaults.withCredentials = true;
-    axios.put("http://localhost:3001/book/book/" +id, {
+    axios.get(`${import.meta.env.VITE_API_URL}/book/book/${id}`, {
       name,
       author,
       imageUrl
