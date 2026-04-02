@@ -6,7 +6,6 @@ import { Student } from '../model/Student.js';
 const router = express.Router();
 
 router.post('/login', async (req, res) => {
-
     try {
         const { username, password, role } = req.body;
         if (role === 'admin') {
@@ -96,11 +95,8 @@ router.get('/verify', verifyUser, (req, res) => {
 })
 
 router.get('/logout', (req, res) => {
-   res.clearCookie('token', {
-    httpOnly: true,
-    secure: true,
-    sameSite: "None"
-});
+    res.clearCookie('token')
+    return res.json({ logout: true })
 })
 
 export { router as AdminRouter, verifyAdmin }
